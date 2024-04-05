@@ -68,3 +68,7 @@ THEN I am presented with text or icon links to the developer’s GitHub and Link
 
 The project was uploaded to [GitHub](https://github.com/) at the following repository:
 [https://github.com/yukitoshi12345/React-Portfolio/](https://github.com/yukitoshi12345/React-Portfolio)
+
+## License
+
+This project is licensed under the [MIT License](https://github.com/Yukitoshi12345/React-Portfolio/blob/main/LICENSE).
