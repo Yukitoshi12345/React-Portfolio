@@ -49,3 +49,26 @@ THEN I see a link to a downloadable resume and a list of the developer’s profi
 WHEN I view the footer
 THEN I am presented with text or icon links to the developer’s GitHub and LinkedIn profiles, and their profile on a third platform (Stack Overflow, Twitter)
 ```
+
+## Technologies Used
+
+## Installation Instruction
+
+- [Install nodejs and npm](https://nodejs.org/en/download)
+
+## Test Instruction
+
+## Screenshot
+
+## Videos
+
+## Output
+
+## Installation
+
+The project was uploaded to [GitHub](https://github.com/) at the following repository:
+[https://github.com/yukitoshi12345/React-Portfolio/](https://github.com/yukitoshi12345/React-Portfolio)
+
+## License
+
+This project is licensed under the [MIT License](https://github.com/Yukitoshi12345/React-Portfolio/blob/main/LICENSE).
