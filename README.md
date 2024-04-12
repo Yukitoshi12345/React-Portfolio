@@ -72,5 +72,3 @@ The project was uploaded to [GitHub](https://github.com/) at the following repos
 ## License
 
 This project is licensed under the [MIT License](https://github.com/Yukitoshi12345/React-Portfolio/blob/main/LICENSE).
-
-testing
