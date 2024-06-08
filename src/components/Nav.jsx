@@ -32,10 +32,6 @@ const Nav = () => {
     >
       <div className="flex items-center justify-between p-10 lg:flex-row">
         <div className="flex items-center space-x-2 font-serif text-3xl tracking-wider">
-          <FaLaptop
-            size="1.5em"
-            className="text-indigo-600 dark:text-indigo-400"
-          />
           <Link to="/" className="text-indigo-600 dark:text-indigo-400">
             Yukitoshi Imaizumi-Zhou
           </Link>
