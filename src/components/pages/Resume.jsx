@@ -1,10 +1,10 @@
-import ResumePDF from '/src/assets/Yukitoshi_Resume.pdf';
+import ResumePDF from "/src/assets/Yukitoshi_Resume.pdf";
 
 const Resume = () => {
   return (
     <div
       className="font-roboto mx-auto my-10 max-w-4xl p-8 rounded-lg shadow-lg bg-gray-100 dark:bg-gray-900 text-gray-900 dark:text-gray-100 text-center"
-      style={{ fontFamily: 'math' }}
+      style={{ fontFamily: "math" }}
     >
       <h1 className="text-4xl font-bold text-indigo-600 dark:text-indigo-400 mb-6">
         Resume

@@ -1,16 +1,16 @@
-// Contact form sends live email
-import React, { useRef, useState } from 'react';
-import emailjs from '@emailjs/browser';
-import Modal from 'react-modal';
+// Contact form sends live email 
+import React, { useRef, useState } from "react";
+import emailjs from "@emailjs/browser";
+import Modal from "react-modal";
 
-Modal.setAppElement('#root');
+Modal.setAppElement("#root");
 
 const Contact = () => {
   const form = useRef();
   const [formData, setFormData] = useState({
-    user_name: '',
-    user_email: '',
-    message: '',
+    user_name: "",
+    user_email: "",
+    message: "",
   });
   const [modalIsOpen, setModalIsOpen] = useState(false);
 
@@ -25,26 +25,26 @@ const Contact = () => {
   const sendEmail = (e) => {
     e.preventDefault();
 
-    if (formData.user_email.includes('@')) {
+    if (formData.user_email.includes("@")) {
       emailjs
         .sendForm(
           import.meta.env.VITE_APP_EMAILJS_SERVICE_ID,
           import.meta.env.VITE_APP_EMAILJS_TEMPLATE_ID,
           form.current,
-          import.meta.env.VITE_APP_EMAILJS_PUBLIC_KEY,
+          import.meta.env.VITE_APP_EMAILJS_PUBLIC_KEY
         )
         .then(
           () => {
-            setFormData({ user_name: '', user_email: '', message: '' });
+            setFormData({ user_name: "", user_email: "", message: "" });
             setModalIsOpen(true);
           },
           (error) => {
-            console.log('FAILED...', error.text);
-            alert('Failed to send message, please try again.');
-          },
+            console.log("FAILED...", error.text);
+            alert("Failed to send message, please try again.");
+          }
         );
     } else {
-      alert('Please enter a valid email address.');
+      alert("Please enter a valid email address.");
     }
   };
 
@@ -55,7 +55,7 @@ const Contact = () => {
   return (
     <div
       className="max-w-lg mx-auto my-10 p-8 shadow-lg rounded-lg bg-gray-100 dark:bg-gray-900 text-gray-900 dark:text-gray-100"
-      style={{ fontFamily: 'math' }}
+      style={{ fontFamily: "math" }}
     >
       <h1 className="text-4xl font-bold text-center mb-6 text-indigo-600 dark:text-indigo-400">
         Contact Me
