@@ -63,7 +63,7 @@ const Nav = () => {
             </NavLink>
 
             <NavLink
-              to="/portfolios"
+              to="/portfolio"
               className={({ isActive }) =>
                 isActive
                   ? 'rounded-full px-5 py-2 text-xl cursor-pointer bg-gradient-to-r from-purple-600 via-indigo-600 to-blue-600 text-white font-bold transition duration-300 ease-in-out flex items-center space-x-2'
@@ -107,7 +107,7 @@ const Nav = () => {
                 : 'block px-5 py-2 text-xl text-gray-800 dark:text-gray-300 hover:text-white hover:bg-gradient-to-r hover:from-purple-400 hover:via-indigo-400 hover:to-blue-400 transition duration-300 ease-in-out rounded-full'
             }
           >
-            Portfolios
+            Portfolio
           </NavLink>
           <NavLink
             to="/contact"

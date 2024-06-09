@@ -3,7 +3,7 @@ import Nav from './components/Nav';
 import Main from './components/Main.jsx';
 import Contact from './components/pages/Contact';
 import Resume from './components/pages/Resume.jsx';
-import Portfolios from './components/pages/Portfolio.jsx';
+import Portfolio from './components/pages/Portfolio.jsx';
 import Footer from './components/pages/Footer';
 import React, { useEffect, useState } from 'react';
 import dotenv from 'dotenv';
@@ -88,7 +88,7 @@ export default function App() {
             <Route path="/home" element={<Main />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/resume" element={<Resume />} />
-            <Route path="/portfolios" element={<Portfolios />} />
+            <Route path="/portfolio" element={<Portfolio />} />
           </Routes>
         </div>
         <Footer />

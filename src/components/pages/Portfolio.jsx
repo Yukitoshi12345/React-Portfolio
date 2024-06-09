@@ -7,8 +7,8 @@ import Pet_Palace from '../../assets/projects/Pet_Palace.png';
 import USYDCyber from '../../assets/projects/USYDCyber.png';
 import Weather_Dashboard from '../../assets/projects/Weather_Dashboard.png';
 
-export default function Portfolios() {
-  const portfolios = [
+export default function Portfolio() {
+  const portfolio = [
     {
       title: 'Pet Palace',
       img: Pet_Palace,
@@ -67,7 +67,7 @@ export default function Portfolios() {
 
   // state to manage icon visibility
   const [visibleIcons, setVisibleIcons] = useState(
-    new Array(portfolios.length).fill(false),
+    new Array(portfolio.length).fill(false),
   );
 
   // function to toggle icon visibility
@@ -103,7 +103,7 @@ export default function Portfolios() {
 
       <div className="font-roboto mx-7 my-7 p-6 shadow-lg rounded-lg">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
-          {portfolios.map((project, index) => (
+          {portfolio.map((project, index) => (
             <div
               key={project.title}
               className="bg-white rounded-lg overflow-hidden shadow-lg transition-shadow duration-300"
