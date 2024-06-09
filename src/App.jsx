@@ -82,7 +82,7 @@ export default function App() {
       </button>
       <div className="flex flex-col min-h-screen">
         <Nav />
-        <div className="flex-grow bg-gray-100 dark:bg-gray-900 text-gray-900 dark:text-gray-100 min-h-screen font-inter">
+        <div className="flex-grow bg-gray-100 dark:bg-gray-900 text-gray-900 dark:text-gray-100 pb-20 font-inter">
           <Routes>
             <Route path="/" element={<Main />} />
             <Route path="/home" element={<Main />} />
