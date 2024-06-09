@@ -9,8 +9,10 @@ const Contact = () => {
   const form = useRef();
   const recaptchaRef = useRef();
   const [formData, setFormData] = useState({
-    user_name: '',
+    first_name: '',
+    last_name: '',
     user_email: '',
+    phone_number: '',
     subject: '',
     message: '',
   });
@@ -58,8 +60,10 @@ const Contact = () => {
         .then(
           () => {
             setFormData({
-              user_name: '',
+              first_name: '',
+              last_name: '',
               user_email: '',
+              phone_number: '',
               subject: '',
               message: '',
             });
@@ -86,8 +90,8 @@ const Contact = () => {
 
   return (
     <div
-      className="max-w-lg mx-auto my-10 p-8 shadow-lg rounded-lg bg-gray-100 dark:bg-gray-900 text-gray-900 dark:text-gray-100"
-      style={{ fontFamily: 'math' }}
+      className="max-w-3xl mx-auto my-10 p-6 shadow-lg rounded-lg bg-gray-100 dark:bg-gray-900 text-gray-900 dark:text-gray-100"
+      style={{ marginTop: '2rem', fontFamily: 'math' }}
     >
       <h1 className="text-4xl font-bold text-center mb-6 text-indigo-600 dark:text-indigo-400">
         Contact Me
@@ -95,14 +99,28 @@ const Contact = () => {
       <form ref={form} onSubmit={sendEmail}>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
           <label className="block">
-            <span className="text-gray-800 dark:text-gray-300">Name:</span>
+            <span className="text-gray-800 dark:text-gray-300">
+              First Name:
+            </span>
             <input
               type="text"
-              name="user_name"
-              value={formData.user_name}
+              name="first_name"
+              value={formData.first_name}
               onChange={handleChange}
               className="mt-1 block w-full px-3 py-2 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-md focus:outline-none focus:border-indigo-500 dark:focus:border-indigo-400"
-              placeholder="Enter your name"
+              placeholder="Enter your first name"
+              required
+            />
+          </label>
+          <label className="block">
+            <span className="text-gray-800 dark:text-gray-300">Last Name:</span>
+            <input
+              type="text"
+              name="last_name"
+              value={formData.last_name}
+              onChange={handleChange}
+              className="mt-1 block w-full px-3 py-2 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-md focus:outline-none focus:border-indigo-500 dark:focus:border-indigo-400"
+              placeholder="Enter your last name"
               required
             />
           </label>
@@ -116,6 +134,19 @@ const Contact = () => {
               className="mt-1 block w-full px-3 py-2 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-md focus:outline-none focus:border-indigo-500 dark:focus:border-indigo-400"
               placeholder="Enter your email"
               required
+            />
+          </label>
+          <label className="block">
+            <span className="text-gray-800 dark:text-gray-300">
+              Phone Number:
+            </span>
+            <input
+              type="text"
+              name="phone_number"
+              value={formData.phone_number}
+              onChange={handleChange}
+              className="mt-1 block w-full px-3 py-2 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-md focus:outline-none focus:border-indigo-500 dark:focus:border-indigo-400"
+              placeholder="Enter your phone number (optional)"
             />
           </label>
         </div>
