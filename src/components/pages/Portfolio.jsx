@@ -112,7 +112,7 @@ export default function Portfolios() {
                 <img
                   src={project.img}
                   alt={project.title}
-                  className="object-cover h-48 w-full mx-auto rounded-none px-6"
+                  className="object-cover w-full h-48 mx-auto rounded-none"
                   style={{ height: '330px' }}
                 />
               </div>
@@ -139,25 +139,6 @@ export default function Portfolios() {
                   </button>
 
                   <div className="flex items-center ml-2 relative">
-                    <svg
-                      className="animate-horizontal-slide w-10 h-10"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                      style={{
-                        display: 'block',
-                        color: 'red',
-                        marginTop: '-7px',
-                        marginLeft: '-10px',
-                      }} // Adjust the marginTop value to move the arrow up
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M1 9l9 5 -9 5"
-                      />
-                    </svg>
                     <a
                       href={project.herokuUrl}
                       target="_blank"

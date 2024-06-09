@@ -70,7 +70,7 @@ const Nav = () => {
                   : 'rounded-full px-5 py-2 text-xl cursor-pointer text-gray-800 dark:text-gray-300 hover:text-white hover:bg-indigo-600 transition duration-300 ease-in-out flex items-center space-x-2'
               }
             >
-              <span>Portfolios</span>
+              <span>Portfolio</span>
             </NavLink>
             <NavLink
               to="/contact"
