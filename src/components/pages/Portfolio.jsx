@@ -1,7 +1,5 @@
 import React, { useState } from 'react';
-// import { BsGithub } from 'react-icons/bs';
-import { SiHeroku } from 'react-icons/si';
-import GitHubPagesImg from '../../assets/projects/GitHub-Pages.png';
+import { FaGlobe } from 'react-icons/fa';
 import Coding_Quiz from '../../assets/projects/Coding_Quiz.png';
 import Gaming_University from '../../assets/projects/Gaming_University.png';
 import Lets_Brag from '../../assets/projects/Lets_Brag.png';
@@ -165,36 +163,13 @@ export default function Portfolios() {
                       />
                     </svg>
 
-                    {/* <a
-                      href={project.githubUrl}
+                    <a
+                      href={project.herokuUrl}
                       target="_blank"
                       rel="noopener noreferrer"
                     >
-                      <BsGithub className="cursor-pointer text-3xl text-gray-800 hover:text-black mx-2 transition-all duration-300 transform hover:scale-110" />
-                    </a> */}
-
-                    {project.herokuUrl.includes('github.io') ? (
-                      <a
-                        href={project.herokuUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="cursor-pointer text-3xl text-gray-800 hover:text-black transition-all duration-300 transform hover:scale-110"
-                      >
-                        <img
-                          src={GitHubPagesImg}
-                          alt="GitHub Pages"
-                          className="h-8 w-8 mx-2 rounded-2xl"
-                        />
-                      </a>
-                    ) : (
-                      <a
-                        href={project.herokuUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
-                        <SiHeroku className="cursor-pointer text-3xl text-purple-600 hover:text-purple-800 mx-2 transition-all duration-300 transform hover:scale-110" />
-                      </a>
-                    )}
+                      <FaGlobe className="cursor-pointer text-3xl text-gray-800 hover:text-black mx-2 transition-all duration-300 transform hover:scale-110" />
+                    </a>
                   </div>
                 </div>
               </div>
