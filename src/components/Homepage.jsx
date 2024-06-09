@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
-import AvatarPic from '../assets/avatar.png';
-import Footer from './pages/Footer';
+import profilePic from '../assets/Yukitoshi.png';
 
 const Homepage = () => {
   const [showMore, setShowMore] = useState(false);
@@ -12,7 +11,7 @@ const Homepage = () => {
           <div className="flex flex-col xl:flex-row gap-24">
             <img
               className="object-cover h-full w-[300px] md:mx-auto lg:mx-0 rounded-2xl mt-20 lg:mt-40"
-              src={AvatarPic}
+              src={profilePic}
               alt="Yukitoshi Imaizumi-Zhou"
             />
             <div className="flex flex-col items-center text-center lg:items-start lg:text-left mt-20 lg:mt-40">
@@ -36,7 +35,6 @@ const Homepage = () => {
           </div>
         </div>
       </section>
-      <Footer />
     </>
   );
 };
