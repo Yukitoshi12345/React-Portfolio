@@ -1,20 +1,46 @@
 import React, { useState } from 'react';
-import profilePic from '../assets/Yukitoshi.png';
+import profilePic1 from '../assets/Yukitoshi1.png';
+import profilePic2 from '../assets/Yukitoshi2.png'; // The newly uploaded image
 
 const Homepage = () => {
-  const [showMore, setShowMore] = useState(false);
+  const images = [profilePic1, profilePic2];
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+
+  const handleNextImage = () => {
+    setCurrentImageIndex((prevIndex) => (prevIndex + 1) % images.length);
+  };
+
+  const handlePreviousImage = () => {
+    setCurrentImageIndex(
+      (prevIndex) => (prevIndex - 1 + images.length) % images.length,
+    );
+  };
 
   return (
     <>
       <section id="about" className="section bg-secondary">
         <div className="container mx-auto">
           <div className="flex flex-col xl:flex-row gap-24">
-            <img
-              className="object-cover h-full w-[300px] md:mx-auto lg:mx-0 rounded-2xl mt-20 lg:mt-40"
-              src={profilePic}
-              alt="Yukitoshi Imaizumi-Zhou"
-            />
-            <div className="flex flex-col items-center text-center lg:items-start lg:text-left mt-20 lg:mt-40">
+            <div className="relative mt-20 lg:mt-40">
+              <button
+                onClick={handlePreviousImage}
+                className="absolute left-0 top-1/2 transform -translate-y-1/2 bg-white rounded-full p-2 shadow-md"
+              >
+                &#9664;
+              </button>
+              <img
+                className="md:mx-auto lg:mx-0 rounded-full"
+                src={images[currentImageIndex]}
+                alt="Yukitoshi Imaizumi-Zhou"
+              />
+              <button
+                onClick={handleNextImage}
+                className="absolute right-0 top-1/2 transform -translate-y-1/2 bg-white rounded-full p-2 shadow-md"
+              >
+                &#9654;
+              </button>
+            </div>
+            <div className="flex flex-col items-center text-center lg:items-start lg:text-left mt-20 lg:mt-5">
               <div className="flex flex-col">
                 <h2 className="text-3xl lg:text-4xl font-medium lg:font-extrabold mb-3 before:content-about relative before:absolute before:opacity-25 before:-top-[2rem] before:hidden before:lg:block">
                   Yukitoshi Imaizumi-Zhou
@@ -46,7 +72,6 @@ const Homepage = () => {
                     real-world scenarios.
                   </p>
                   <br />
-
                   <p>
                     My university experience was enriched by my active
                     involvement in various societies. I served as an executive
@@ -81,7 +106,6 @@ const Homepage = () => {
                     where we emerged victorious.
                   </p>
                   <br />
-
                   <p>
                     This combination of formal education, practical experience,
                     leadership roles, and diverse job responsibilities, along
