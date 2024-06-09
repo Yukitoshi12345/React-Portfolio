@@ -1,17 +1,22 @@
-// Contact form sends live email 
-import React, { useRef, useState } from "react";
-import emailjs from "@emailjs/browser";
-import Modal from "react-modal";
+import React, { useRef, useState } from 'react';
+import emailjs from '@emailjs/browser';
+import Modal from 'react-modal';
+import ReCAPTCHA from 'react-google-recaptcha';
 
-Modal.setAppElement("#root");
+Modal.setAppElement('#root');
 
 const Contact = () => {
   const form = useRef();
+  const recaptchaRef = useRef();
   const [formData, setFormData] = useState({
-    user_name: "",
-    user_email: "",
-    message: "",
+    user_name: '',
+    user_email: '',
+    subject: '',
+    message: '',
   });
+  const [file, setFile] = useState(null);
+  const [termsAccepted, setTermsAccepted] = useState(false);
+  const [captchaValid, setCaptchaValid] = useState(false);
   const [modalIsOpen, setModalIsOpen] = useState(false);
 
   const handleChange = (e) => {
@@ -22,29 +27,56 @@ const Contact = () => {
     }));
   };
 
+  const handleFileChange = (e) => {
+    setFile(e.target.files[0]);
+  };
+
+  const handleTermsChange = (e) => {
+    setTermsAccepted(e.target.checked);
+  };
+
+  const handleCaptchaChange = (value) => {
+    setCaptchaValid(value !== null);
+  };
+
   const sendEmail = (e) => {
     e.preventDefault();
 
-    if (formData.user_email.includes("@")) {
+    if (formData.user_email.includes('@') && termsAccepted && captchaValid) {
+      const formDataWithFile = new FormData(form.current);
+      if (file) {
+        formDataWithFile.append('file', file);
+      }
+
       emailjs
         .sendForm(
           import.meta.env.VITE_APP_EMAILJS_SERVICE_ID,
           import.meta.env.VITE_APP_EMAILJS_TEMPLATE_ID,
-          form.current,
-          import.meta.env.VITE_APP_EMAILJS_PUBLIC_KEY
+          formDataWithFile,
+          import.meta.env.VITE_APP_EMAILJS_PUBLIC_KEY,
         )
         .then(
           () => {
-            setFormData({ user_name: "", user_email: "", message: "" });
+            setFormData({
+              user_name: '',
+              user_email: '',
+              subject: '',
+              message: '',
+            });
+            setFile(null);
+            setTermsAccepted(false);
+            setCaptchaValid(false);
             setModalIsOpen(true);
           },
           (error) => {
-            console.log("FAILED...", error.text);
-            alert("Failed to send message, please try again.");
-          }
+            console.log('FAILED...', error.text);
+            alert('Failed to send message, please try again.');
+          },
         );
     } else {
-      alert("Please enter a valid email address.");
+      alert(
+        'Please fill in all required fields, accept the terms, and complete the reCAPTCHA.',
+      );
     }
   };
 
@@ -55,33 +87,47 @@ const Contact = () => {
   return (
     <div
       className="max-w-lg mx-auto my-10 p-8 shadow-lg rounded-lg bg-gray-100 dark:bg-gray-900 text-gray-900 dark:text-gray-100"
-      style={{ fontFamily: "math" }}
+      style={{ fontFamily: 'math' }}
     >
       <h1 className="text-4xl font-bold text-center mb-6 text-indigo-600 dark:text-indigo-400">
         Contact Me
       </h1>
       <form ref={form} onSubmit={sendEmail}>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+          <label className="block">
+            <span className="text-gray-800 dark:text-gray-300">Name:</span>
+            <input
+              type="text"
+              name="user_name"
+              value={formData.user_name}
+              onChange={handleChange}
+              className="mt-1 block w-full px-3 py-2 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-md focus:outline-none focus:border-indigo-500 dark:focus:border-indigo-400"
+              placeholder="Enter your name"
+              required
+            />
+          </label>
+          <label className="block">
+            <span className="text-gray-800 dark:text-gray-300">Email:</span>
+            <input
+              type="email"
+              name="user_email"
+              value={formData.user_email}
+              onChange={handleChange}
+              className="mt-1 block w-full px-3 py-2 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-md focus:outline-none focus:border-indigo-500 dark:focus:border-indigo-400"
+              placeholder="Enter your email"
+              required
+            />
+          </label>
+        </div>
         <label className="block mb-4">
-          <span className="text-gray-800 dark:text-gray-300">Name:</span>
+          <span className="text-gray-800 dark:text-gray-300">Subject:</span>
           <input
             type="text"
-            name="user_name"
-            value={formData.user_name}
+            name="subject"
+            value={formData.subject}
             onChange={handleChange}
             className="mt-1 block w-full px-3 py-2 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-md focus:outline-none focus:border-indigo-500 dark:focus:border-indigo-400"
-            placeholder="Enter your name"
-            required
-          />
-        </label>
-        <label className="block mb-4">
-          <span className="text-gray-800 dark:text-gray-300">Email:</span>
-          <input
-            type="email"
-            name="user_email"
-            value={formData.user_email}
-            onChange={handleChange}
-            className="mt-1 block w-full px-3 py-2 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-md focus:outline-none focus:border-indigo-500 dark:focus:border-indigo-400"
-            placeholder="Enter your email"
+            placeholder="Enter the subject"
             required
           />
         </label>
@@ -97,6 +143,42 @@ const Contact = () => {
             required
           ></textarea>
         </label>
+        <label className="block mb-4">
+          <span className="text-gray-800 dark:text-gray-300">
+            Upload File (optional):
+          </span>
+          <input
+            type="file"
+            name="file"
+            onChange={handleFileChange}
+            className="mt-1 block w-full px-3 py-2 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-md focus:outline-none focus:border-indigo-500 dark:focus:border-indigo-400"
+          />
+          <small className="text-gray-600 dark:text-gray-400">
+            File cannot exceed 20MB.
+          </small>
+        </label>
+        <label className="flex items-center mb-4">
+          <input
+            type="checkbox"
+            name="terms"
+            checked={termsAccepted}
+            onChange={handleTermsChange}
+            className="mr-2"
+          />
+          <span className="text-gray-800 dark:text-gray-300">
+            I accept the{' '}
+            <a href="#" className="text-indigo-600 dark:text-indigo-400">
+              terms and conditions
+            </a>
+          </span>
+        </label>
+        <div className="mb-6">
+          <ReCAPTCHA
+            ref={recaptchaRef}
+            sitekey={import.meta.env.VITE_APP_RECAPTCHA_SITE_KEY}
+            onChange={handleCaptchaChange}
+          />
+        </div>
         <button
           type="submit"
           className="w-full bg-gradient-to-r from-purple-600 via-indigo-600 to-blue-600 text-white font-bold py-2 px-4 rounded-full focus:outline-none focus:shadow-outline transition-colors duration-300 hover:from-purple-700 hover:via-indigo-700 hover:to-blue-700"

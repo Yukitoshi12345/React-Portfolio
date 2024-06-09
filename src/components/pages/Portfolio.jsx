@@ -15,10 +15,8 @@ export default function Portfolios() {
       desc: 'I developed a MERN stack Pet Adoption Platform with two teammates, styled with Tailwind CSS and daisyUI. This responsive, installable web app features dynamic',
       extraInfo:
         'pet listings, user authentication, Stripe for secure donations, and EmailJS for seamless communication, enhancing engagement with animal shelters.',
-
       url: '#',
       herokuUrl: 'https://pet-palace-syll.onrender.com/',
-      // githubUrl: 'https://github.com/Yukitoshi12345/Pet-Palace',
     },
     {
       title: 'Lets Brag',
@@ -26,10 +24,8 @@ export default function Portfolios() {
       desc: "I developed Let's Brag, a social media platform with three teammates, using Node.js, Express.js, Handlebars.js, and MySQL, and incorporating multer for file handling. Styled with",
       extraInfo:
         'Tailwind CSS, DaisyUI and deployed on Heroku, the platform provides a dynamic, interactive space for users to share and celebrate achievements.',
-
       url: '#',
       herokuUrl: 'https://lets-brag-b258984e3793.herokuapp.com/',
-      // githubUrl: 'https://github.com/Yukitoshi12345/Lets-Brag',
     },
     {
       title: 'The University of Gaming',
@@ -37,10 +33,8 @@ export default function Portfolios() {
       desc: 'I developed "The University of Gaming" with three teammates, a responsive web portal deployed on GitHub Pages. Using Tailwind CSS and DaisyUI, it integrates GameSpot and',
       extraInfo:
         'RAWG APIs to provide detailed video game profiles, recent searches, and weekly news, enhancing access to gaming information.',
-
       url: '#',
       herokuUrl: 'https://yukitoshi12345.github.io/The-University-of-Gaming/',
-      // githubUrl: 'https://github.com/Yukitoshi12345/The-University-of-Gaming',
     },
     {
       title: 'USYD Cyber Security Website',
@@ -48,10 +42,8 @@ export default function Portfolios() {
       desc: 'I collaborated with a team of technology specialists to develop the inaugural website for the University of Sydney Cyber Security Society. Using React and Bootstrap, we created',
       extraInfo:
         "a user-friendly platform that supports the society's mission by enhancing cybersecurity awareness and education among students.",
-
       url: '#',
       herokuUrl: 'https://usydcyber.com/',
-      // githubUrl: 'https://github.sydney.edu.au/cbud0022/usydcyber',
     },
     {
       title: 'Weather Dashboard',
@@ -59,10 +51,8 @@ export default function Portfolios() {
       desc: 'I developed a weather dashboard that provides real-time and forecasted weather conditions for cities worldwide, enhancing travel planning. Utilising JavaScript, Day.js, jQuery, and Bootstrap, the platform',
       extraInfo:
         ' offers an intuitive interface with a persistent search history, allowing users to easily access and revisit their queries.',
-
       url: '#',
       herokuUrl: 'https://yukitoshi12345.github.io/Weather-Dashboard/',
-      // githubUrl: 'https://github.com/Yukitoshi12345/Weather-Dashboard',
     },
     {
       title: 'Coding Quiz Game',
@@ -70,10 +60,8 @@ export default function Portfolios() {
       desc: 'I developed a browser-based coding quiz application to sharpen JavaScript skills, featuring a responsive UI and timed, multiple-choice questions. Built with HTML, CSS, and JavaScript, this app challenges',
       extraInfo:
         'users with time penalties for incorrect answers and allows score saving upon completion, showcasing my front-end development proficiency.',
-
       url: '#',
       herokuUrl: 'https://yukitoshi12345.github.io/Coding-Quiz-Game/',
-      // githubUrl: 'https://github.com/Yukitoshi12345/Coding-Quiz-Game',
     },
   ];
 
@@ -132,7 +120,10 @@ export default function Portfolios() {
                 <h3 className="text-lg font-semibold text-indigo-600">
                   {project.title}
                 </h3>
-                <p className="text-gray-600 mb-5 overflow-hidden max-h-36">
+                <p
+                  className="text-gray-600 mb-5 overflow-hidden transition-max-height duration-300"
+                  style={{ maxHeight: visibleIcons[index] ? '500px' : '72px' }} // Adjust maxHeight for expanded/collapsed state
+                >
                   {project.desc}
                   {!visibleIcons[index] && <span>...</span>}{' '}
                   {/* Show ellipsis when extra info is hidden */}
@@ -147,13 +138,18 @@ export default function Portfolios() {
                     {visibleIcons[index] ? 'Show Less' : 'Show More'}
                   </button>
 
-                  <div className="flex flex-end items-end ml-2">
+                  <div className="flex items-center ml-2 relative">
                     <svg
-                      className="animate-horizontal-slide w-10 h-10 mx-auto mt-4"
+                      className="animate-horizontal-slide w-10 h-10"
                       fill="none"
                       viewBox="0 0 24 24"
                       stroke="currentColor"
-                      style={{ display: 'block', color: 'red' }}
+                      style={{
+                        display: 'block',
+                        color: 'red',
+                        marginTop: '-7px',
+                        marginLeft: '-10px',
+                      }} // Adjust the marginTop value to move the arrow up
                     >
                       <path
                         strokeLinecap="round"
@@ -162,7 +158,6 @@ export default function Portfolios() {
                         d="M1 9l9 5 -9 5"
                       />
                     </svg>
-
                     <a
                       href={project.herokuUrl}
                       target="_blank"
