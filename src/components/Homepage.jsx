@@ -16,29 +16,45 @@ const Homepage = () => {
     );
   };
 
+  const renderDots = () => {
+    return images.map((_, index) => (
+      <span
+        key={index}
+        className={`inline-block h-2 w-2 mx-1 rounded-full ${
+          index === currentImageIndex ? 'bg-blue-500' : 'bg-gray-400'
+        }`}
+      />
+    ));
+  };
+
   return (
     <>
       <section id="about" className="section bg-secondary">
         <div className="container mx-auto">
           <div className="flex flex-col xl:flex-row gap-24">
-            <div className="relative mt-20 lg:mt-40">
-              <button
-                onClick={handlePreviousImage}
-                className="absolute left-0 top-1/2 transform -translate-y-1/2 bg-white rounded-full p-2 shadow-md"
-              >
-                &#9664;
-              </button>
-              <img
-                className="md:mx-auto lg:mx-0 rounded-full"
-                src={images[currentImageIndex]}
-                alt="Yukitoshi Imaizumi-Zhou"
-              />
-              <button
-                onClick={handleNextImage}
-                className="absolute right-0 top-1/2 transform -translate-y-1/2 bg-white rounded-full p-2 shadow-md"
-              >
-                &#9654;
-              </button>
+            <div className="relative mt-20 lg:mt-40 lg:ml-[-2rem]">
+              <div className="flex items-center justify-center">
+                <button
+                  onClick={handlePreviousImage}
+                  className="bg-white dark:bg-gray-800 text-black dark:text-white rounded-full p-2 shadow-md"
+                >
+                  &#9664;
+                </button>
+                <div className="mx-4">
+                  <img
+                    className="md:mx-auto lg:mx-0 rounded-full"
+                    src={images[currentImageIndex]}
+                    alt="Yukitoshi Imaizumi-Zhou"
+                  />
+                </div>
+                <button
+                  onClick={handleNextImage}
+                  className="bg-white dark:bg-gray-800 text-black dark:text-white rounded-full p-2 shadow-md"
+                >
+                  &#9654;
+                </button>
+              </div>
+              <div className="flex justify-center mt-4">{renderDots()}</div>
             </div>
             <div className="flex flex-col items-center text-center lg:items-start lg:text-left mt-20 lg:mt-5">
               <div className="flex flex-col">
