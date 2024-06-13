@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import profilePic1 from '../assets/Yukitoshi1.png';
-import profilePic2 from '../assets/Yukitoshi2.png'; // The newly uploaded image
+import profilePic2 from '../assets/Yukitoshi2.png';
 
 const Homepage = () => {
   const images = [profilePic1, profilePic2];
