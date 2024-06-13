@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { BsGithub } from 'react-icons/bs';
 import { FaGlobe } from 'react-icons/fa';
 import Coding_Quiz from '../../assets/projects/Coding_Quiz.png';
 import Gaming_University from '../../assets/projects/Gaming_University.png';
@@ -16,7 +17,8 @@ export default function Portfolio() {
       extraInfo:
         'pet listings, user authentication, Stripe for secure donations, and EmailJS for seamless communication, enhancing engagement with animal shelters.',
       url: '#',
-      herokuUrl: 'https://pet-palace-syll.onrender.com/',
+      githubUrl: 'https://github.com/Yukitoshi12345/Pet-Palace',
+      websiteUrl: 'https://pet-palace-syll.onrender.com/',
     },
     {
       title: 'Lets Brag',
@@ -25,7 +27,8 @@ export default function Portfolio() {
       extraInfo:
         'Tailwind CSS, DaisyUI and deployed on Heroku, the platform provides a dynamic, interactive space for users to share and celebrate achievements.',
       url: '#',
-      herokuUrl: 'https://lets-brag-b258984e3793.herokuapp.com/',
+      githubUrl: 'https://github.com/Yukitoshi12345/Lets-Brag',
+      websiteUrl: 'https://lets-brag-b258984e3793.herokuapp.com/',
     },
     {
       title: 'The University of Gaming',
@@ -34,7 +37,8 @@ export default function Portfolio() {
       extraInfo:
         'RAWG APIs to provide detailed video game profiles, recent searches, and weekly news, enhancing access to gaming information.',
       url: '#',
-      herokuUrl: 'https://yukitoshi12345.github.io/The-University-of-Gaming/',
+      githubUrl: 'https://github.com/Yukitoshi12345/The-University-of-Gaming',
+      websiteUrl: 'https://yukitoshi12345.github.io/The-University-of-Gaming/',
     },
     {
       title: 'USYD Cyber Security Website',
@@ -43,7 +47,8 @@ export default function Portfolio() {
       extraInfo:
         "a user-friendly platform that supports the society's mission by enhancing cybersecurity awareness and education among students.",
       url: '#',
-      herokuUrl: 'https://usydcyber.com/',
+      // githubUrl: ''
+      websiteUrl: 'https://usydcyber.com/',
     },
     {
       title: 'Weather Dashboard',
@@ -52,7 +57,8 @@ export default function Portfolio() {
       extraInfo:
         ' offers an intuitive interface with a persistent search history, allowing users to easily access and revisit their queries.',
       url: '#',
-      herokuUrl: 'https://yukitoshi12345.github.io/Weather-Dashboard/',
+      githubUrl: 'https://github.com/Yukitoshi12345/Weather-Dashboard',
+      websiteUrl: 'https://yukitoshi12345.github.io/Weather-Dashboard/',
     },
     {
       title: 'Coding Quiz Game',
@@ -61,7 +67,8 @@ export default function Portfolio() {
       extraInfo:
         'users with time penalties for incorrect answers and allows score saving upon completion, showcasing my front-end development proficiency.',
       url: '#',
-      herokuUrl: 'https://yukitoshi12345.github.io/Coding-Quiz-Game/',
+      githubUrl: 'https://github.com/Yukitoshi12345/Coding-Quiz-Game',
+      websiteUrl: 'https://yukitoshi12345.github.io/Coding-Quiz-Game/',
     },
   ];
 
@@ -158,8 +165,17 @@ export default function Portfolio() {
                         d="M1 9l9 5 -9 5"
                       />
                     </svg>
+
                     <a
-                      href={project.herokuUrl}
+                      href={project.githubUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <BsGithub className="cursor-pointer text-3xl text-gray-800 hover:text-black mx-2 transition-all duration-300 transform hover:scale-110" />
+                    </a>
+
+                    <a
+                      href={project.websiteUrl}
                       target="_blank"
                       rel="noopener noreferrer"
                     >
