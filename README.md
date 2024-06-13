@@ -37,3 +37,14 @@ THEN I see a link to a downloadable resume and a list of the developer’s profi
 WHEN I view the footer
 THEN I am presented with text or icon links to the developer’s GitHub and LinkedIn profiles, and their profile on a third platform (Stack Overflow, Twitter)
 ```
+
+## Deployed Application
+
+The project was uploaded to [GitHub](https://github.com/) at the following repository:
+[https://github.com/Yukitoshi12345/React-Portfolio/](https://github.com/Yukitoshi12345/React-Portfolio)
+
+You can access the deployed application here: [https://yukitoshi.netlify.app/](https://yukitoshi.netlify.app/)
+
+## License
+
+This project is licensed under the [MIT License](https://github.com/Yukitoshi12345/React-Portfolio/blob/main/LICENSE).
