@@ -1,4 +1,20 @@
-# Yukitoshi's Portfolio
+<h1 align = "center"> React Portfolio </h1>
+
+Welcome to my portfolio, a showcase of expertise in building applications created using React and Tailwind CSS. This portfolio offers a seamless experience with a structured layout that includes a header, content sections, and a footer. Navigate through sections like About Me, Portfolio, Contact, and Resume to explore my professional journey and skills.
+
+In the About Me section, you will find a recent photo and a short bio. The Portfolio section highlights six projects with links to the deployed applications and GitHub repositories. The Contact section features a user-friendly form for inquiries, while the Resume section provides a downloadable resume and a list of proficiencies. The footer connects you to my GitHub, LinkedIn, and Twitter. Dive into the portfolio to discover my dedication and technical prowess in web development.
+
+## Table of Contents
+
+- [User Story](#user-story)
+- [Acceptance Criteria](#acceptance-criteria)
+- [Technologies Used](#technologies-used)
+- [Test Instruction](#test-instruction)
+- [Screenshot](#screenshot)
+- [Videos](#videos)
+- [Output](#output)
+- [Deployed Application](#deployed-application)
+- [License](#license)
 
 ## User Story
 
@@ -37,6 +53,40 @@ THEN I see a link to a downloadable resume and a list of the developer’s profi
 WHEN I view the footer
 THEN I am presented with text or icon links to the developer’s GitHub and LinkedIn profiles, and their profile on a third platform (Stack Overflow, Twitter)
 ```
+
+## Technologies Used
+
+- React
+- Vite
+- Tailwind
+- PWA
+
+## Installation Instruction
+
+- [Install nodejs and npm](https://nodejs.org/en/download)
+
+## Test Instruction
+
+To use this project:
+
+- Get a copy of this repo to your local machine.
+- Install the `Node Module`
+
+```
+npm install
+```
+
+- Type in the following to run the project:
+
+```
+npm run dev
+```
+
+## Screenshot
+
+## Videos
+
+## Output
 
 ## Deployed Application
 
