@@ -1,109 +1,216 @@
-import html_logo from '../../assets/skills/html5.png';
+import angular_logo from '../../assets/skills/angular.png';
+import aws_logo from '../../assets/skills/aws.png';
+import babel_logo from '../../assets/skills/babel.png';
+import bootstrap_logo from '../../assets/skills/bootstrap.png';
+import bulma_logo from '../../assets/skills/bulma.png';
 import css_logo from '../../assets/skills/css3.png';
-import tailwind_logo from '../../assets/skills/tailwindcss.png';
-import js_logo from '../../assets/skills/js.png';
-import nodejs_logo from '../../assets/skills/nodejs.png';
-import git_logo from '../../assets/skills/git.png';
-import mysql_logo from '../../assets/skills/mysql.png';
-import mongodb_logo from '../../assets/skills/mongodb.png';
-import react_logo from '../../assets/skills/reactjs.png';
 import express_logo from '../../assets/skills/expressjs.png';
-import mongoose_logo from '../../assets/skills/mongoose.png';
-import webpack_logo from '../../assets/skills/webpack.png';
-import jest_logo from '../../assets/skills/jest.png';
-import postman_logo from '../../assets/skills/postman.png';
-import sequelize_logo from '../../assets/skills/sequelize.png';
+import git_logo from '../../assets/skills/git.png';
+import github_logo from '../../assets/skills/github.png';
+import gitlab_logo from '../../assets/skills/gitlab.png';
 import graphql_logo from '../../assets/skills/graphql.png';
+import handlebars_logo from '../../assets/skills/handlebars.png';
+import heroku_logo from '../../assets/skills/heroku.png';
+import html_logo from '../../assets/skills/html5.png';
+import insomnia_logo from '../../assets/skills/insomnia.png';
+import jest_logo from '../../assets/skills/jest.png';
 import jquery_logo from '../../assets/skills/jquery.png';
+import js_logo from '../../assets/skills/js.png';
+import materialize_logo from '../../assets/skills/materialize.png';
+import mongodb_logo from '../../assets/skills/mongodb.png';
+import mongoose_logo from '../../assets/skills/mongoose.png';
+import mysql_logo from '../../assets/skills/mysql.png';
+import netlify_logo from '../../assets/skills/netlify.png';
+import nodejs_logo from '../../assets/skills/nodejs.png';
+import render_logo from '../../assets/skills/render.png';
+import postgreSQL_logo from '../../assets/skills/postgreSQL.png';
+import postman_logo from '../../assets/skills/postman.png';
+import python_logo from '../../assets/skills/python.png';
+import react_logo from '../../assets/skills/reactjs.png';
+import sequelize_logo from '../../assets/skills/sequelize.png';
+import tailwind_logo from '../../assets/skills/tailwindcss.png';
+import vite_logo from '../../assets/skills/vite.png';
+import vue_logo from '../../assets/skills/vue.png';
+import webpack_logo from '../../assets/skills/webpack.png';
 
 import ResumePDF from '/src/assets/Yukitoshi_Resume.pdf';
 
 // Skill
 export const skills = [
+  // Front End
   {
     image: html_logo,
     name: 'HTML5',
-    tech: 'frontend',
+    tech: 'Frontend',
   },
   {
     image: css_logo,
     name: 'CSS3',
-    tech: 'frontend',
+    tech: 'Frontend',
+  },
+  {
+    image: bootstrap_logo,
+    name: 'Bootstrap',
+    tech: 'Frontend',
   },
   {
     image: tailwind_logo,
     name: 'Tailwind CSS',
-    tech: 'frontend',
+    tech: 'Frontend',
+  },
+  {
+    image: bulma_logo,
+    name: 'Bulma',
+    tech: 'Frontend',
+  },
+  {
+    image: materialize_logo,
+    name: 'Materialize',
+    tech: 'Frontend',
   },
   {
     image: js_logo,
     name: 'JavaScript',
-    tech: 'frontend',
-  },
-  {
-    image: nodejs_logo,
-    name: 'NodeJS',
-    tech: 'backend',
-  },
-  {
-    image: git_logo,
-    name: 'Git',
-    tech: 'neither',
-  },
-  {
-    image: mysql_logo,
-    name: 'MySQL',
-    tech: 'backend',
-  },
-  {
-    image: mongodb_logo,
-    name: 'MongoDB',
-    tech: 'backend',
-  },
-  {
-    image: react_logo,
-    name: 'ReactJS',
-    tech: 'frontend',
-  },
-  {
-    image: express_logo,
-    name: 'ExpressJS',
-    tech: 'backend',
-  },
-  {
-    image: mongoose_logo,
-    name: 'Mongoose',
-    tech: 'backend',
-  },
-  {
-    image: webpack_logo,
-    name: 'Webpack',
-    tech: 'neither',
-  },
-  {
-    image: jest_logo,
-    name: 'Jest',
-    tech: 'neither',
-  },
-  {
-    image: postman_logo,
-    name: 'Postman',
-    tech: 'neither',
-  },
-  {
-    image: sequelize_logo,
-    name: 'Sequelize',
-    tech: 'backend',
-  },
-  {
-    image: graphql_logo,
-    name: 'GraphQL',
-    tech: 'backend',
+    tech: 'Frontend',
   },
   {
     image: jquery_logo,
     name: 'jQuery',
-    tech: 'frontend',
+    tech: 'Frontend',
+  },
+  {
+    image: handlebars_logo,
+    name: 'Handlebars',
+    tech: 'Frontend',
+  },
+  {
+    image: react_logo,
+    name: 'React',
+    tech: 'Frontend',
+  },
+  {
+    image: angular_logo,
+    name: 'Angular',
+    tech: 'Frontend',
+  },
+  {
+    image: vue_logo,
+    name: 'Vue',
+    tech: 'Frontend',
+  },
+  {
+    image: vite_logo,
+    name: 'Vite',
+    tech: 'Frontend',
+  },
+
+  // Back End
+  {
+    image: nodejs_logo,
+    name: 'NodeJS',
+    tech: 'Backend',
+  },
+  {
+    image: express_logo,
+    name: 'ExpressJS',
+    tech: 'Backend',
+  },
+  {
+    image: mysql_logo,
+    name: 'MySQL',
+    tech: 'Backend',
+  },
+  {
+    image: postgreSQL_logo,
+    name: 'PostgreSQL',
+    tech: 'Backend',
+  },
+  {
+    image: mongodb_logo,
+    name: 'MongoDB',
+    tech: 'Backend',
+  },
+  {
+    image: mongoose_logo,
+    name: 'Mongoose',
+    tech: 'Backend',
+  },
+  {
+    image: sequelize_logo,
+    name: 'Sequelize',
+    tech: 'Backend',
+  },
+  {
+    image: graphql_logo,
+    name: 'GraphQL',
+    tech: 'Backend',
+  },
+  {
+    image: python_logo,
+    name: 'Python',
+    tech: 'Backend',
+  },
+
+  // Development
+  {
+    image: git_logo,
+    name: 'Git',
+    tech: 'Neither',
+  },
+  {
+    image: github_logo,
+    name: 'Github',
+    tech: 'Neither',
+  },
+  {
+    image: gitlab_logo,
+    name: 'Gitlab',
+    tech: 'Neither',
+  },
+  {
+    image: webpack_logo,
+    name: 'Webpack',
+    tech: 'Neither',
+  },
+  {
+    image: babel_logo,
+    name: 'Babel',
+    tech: 'Neither',
+  },
+  {
+    image: jest_logo,
+    name: 'Jest',
+    tech: 'Neither',
+  },
+  {
+    image: postman_logo,
+    name: 'Postman',
+    tech: 'Neither',
+  },
+  {
+    image: insomnia_logo,
+    name: 'Insomnia',
+    tech: 'Neither',
+  },
+  {
+    image: aws_logo,
+    name: 'aws',
+    tech: 'Neither',
+  },
+  {
+    image: heroku_logo,
+    name: 'Heroku',
+    tech: 'Neither',
+  },
+  {
+    image: netlify_logo,
+    name: 'Netlify',
+    tech: 'Neither',
+  },
+  {
+    image: render_logo,
+    name: 'Render',
+    tech: 'Neither',
   },
 ];
 
@@ -115,14 +222,14 @@ const Resume = () => {
   const Skills = ({ stack }) => {
     let category;
     switch (stack) {
-      case 'frontend':
+      case 'Frontend':
         category = 'Frontend Skills';
         break;
-      case 'backend':
+      case 'Backend':
         category = 'Backend Skills';
         break;
       default:
-        category = 'Other Skills';
+        category = 'Development Skills';
         break;
     }
     return (
@@ -172,9 +279,9 @@ const Resume = () => {
         MySQL and MongoDB, ensuring efficient and secure data management.
       </p> */}
 
-      <Skills stack={'frontend'} />
-      <Skills stack={'backend'} />
-      <Skills stack={'neither'} />
+      <Skills stack={'Frontend'} />
+      <Skills stack={'Backend'} />
+      <Skills stack={'Neither'} />
 
       <a
         href={ResumePDF}

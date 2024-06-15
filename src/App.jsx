@@ -6,7 +6,6 @@ import Resume from './components/pages/Resume.jsx';
 import Portfolio from './components/pages/Portfolio.jsx';
 import Footer from './components/pages/Footer';
 import React, { useEffect, useState } from 'react';
-import dotenv from 'dotenv';
 
 export default function App() {
   const [theme, setTheme] = useState(null);
@@ -85,7 +84,6 @@ export default function App() {
         <div className="flex-grow bg-gray-100 dark:bg-gray-900 text-gray-900 dark:text-gray-100 pb-20 font-inter">
           <Routes>
             <Route path="/" element={<Main />} />
-            <Route path="/home" element={<Main />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/resume" element={<Resume />} />
             <Route path="/portfolio" element={<Portfolio />} />
