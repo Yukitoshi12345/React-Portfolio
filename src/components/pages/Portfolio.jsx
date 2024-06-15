@@ -108,7 +108,7 @@ export default function Portfolio() {
         </svg>
       </h1>
 
-      <div className="font-roboto mx-7 my-7 p-6 shadow-lg rounded-lg">
+      <div className="font-roboto mx-0.4 my-7 p-6 shadow-lg rounded-lg md:mx-7">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
           {portfolio.map((project, index) => (
             <div
