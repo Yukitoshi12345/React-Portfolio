@@ -1,5 +1,5 @@
 import React from 'react';
-import { BsGithub, BsLinkedin, BsInstagram } from 'react-icons/bs';
+import { BsGithub, BsLinkedin, BsTwitter } from 'react-icons/bs';
 
 const Footer = () => {
   return (
@@ -29,11 +29,11 @@ const Footer = () => {
           />
         </a>
         <a
-          href="https://www.instagram.com/yukitoshi3256/"
+          href="https://www.twitter.com/"
           target="_blank"
           rel="noopener noreferrer"
         >
-          <BsInstagram
+          <BsTwitter
             size={35}
             className="text-purple-600 hover:text-purple-800 transition-all duration-300 transform hover:scale-110 md:size-45"
           />
