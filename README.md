@@ -69,7 +69,7 @@ THEN I am presented with text or icon links to the developer’s GitHub and Link
 
 To use this project:
 
-- Get a copy of this repo to your local machine.
+- Fork this repository to your GitHub account
 - Install the `Node Module`
 
 ```
