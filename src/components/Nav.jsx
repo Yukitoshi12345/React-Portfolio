@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import { AiOutlineClose } from 'react-icons/ai';
 import { HiMenuAlt1 } from 'react-icons/hi';
-import logo from '../assets/logos/logo9.png';
+import logo from '../assets/logos/logo10.png';
 
 const Nav = () => {
   const [toggle, setToggle] = useState(false);
@@ -30,11 +30,15 @@ const Nav = () => {
       className="bg-gray-200 dark:bg-gray-800 text-gray-700 dark:text-gray-100"
       style={{ fontFamily: 'math' }}
     >
-      <div className="flex items-center justify-between p-10 lg:flex-row">
+      <div className="flex items-center justify-between p-6 lg:p-10 lg:flex-row">
         <div className="flex items-center space-x-2 font-serif text-3xl tracking-wider">
           <Link to="/" className="flex items-center">
-            <img src={logo} alt="Logo" className="w-12 h-12 lg:w-16 lg:h-16" />
-            <span className="ml-6 lg:ml-8 text-indigo-600 dark:text-indigo-400">
+            <img
+              src={logo}
+              alt="Logo"
+              className="w-12 h-12 lg:w-16 lg:h-16 ml-2"
+            />
+            <span className="ml-4 lg:ml-8 text-indigo-600 dark:text-indigo-400">
               <span className="block text-2xl lg:hidden">Yukitoshi</span>
               <span className="hidden lg:block text-3xl">
                 Yukitoshi Imaizumi-Zhou
@@ -48,13 +52,13 @@ const Nav = () => {
             <AiOutlineClose
               onClick={() => setToggle(false)}
               size="1.5em"
-              className="cursor-pointer text-gray-600 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400 transition duration-300 lg:hidden"
+              className="cursor-pointer text-gray-600 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400 transition duration-300 lg:hidden transform -translate-x-[1.2cm]"
             />
           ) : (
             <HiMenuAlt1
               onClick={() => setToggle(true)}
               size="1.5em"
-              className="cursor-pointer text-gray-600 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400 transition duration-300 lg:hidden"
+              className="cursor-pointer text-gray-600 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400 transition duration-300 lg:hidden transform -translate-x-[1.2cm]"
             />
           )}
           <div className="hidden lg:flex space-x-2">
