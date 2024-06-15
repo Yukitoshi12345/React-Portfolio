@@ -31,34 +31,35 @@ const Nav = () => {
       style={{ fontFamily: 'math' }}
     >
       <div className="flex items-center justify-between p-6 lg:p-10 lg:flex-row">
-        <div className="flex items-center space-x-2 font-serif text-3xl tracking-wider">
-          <Link to="/" className="flex items-center">
-            <img
-              src={logo}
-              alt="Logo"
-              className="w-12 h-12 lg:w-16 lg:h-16 ml-2"
-            />
-            <span className="ml-4 lg:ml-8 text-indigo-600 dark:text-indigo-400">
-              <span className="block text-2xl lg:hidden">Yukitoshi</span>
-              <span className="hidden lg:block text-3xl">
-                Yukitoshi Imaizumi-Zhou
-              </span>
-            </span>
-          </Link>
-        </div>
+      <div className="flex items-center space-x-2 font-serif text-3xl tracking-wider">
+  <Link to="/" className="flex items-center">
+    <img
+      src={logo}
+      alt="Logo"
+      className="w-12 h-12 lg:w-16 lg:h-16 ml-2 sm:-ml-2"
+    />
+    <span className="ml-4 lg:ml-8 text-indigo-600 dark:text-indigo-400 sm:ml-2">
+      <span className="block text-2xl lg:hidden">Yukitoshi</span>
+      <span className="hidden lg:block text-3xl">
+        Yukitoshi Imaizumi-Zhou
+      </span>
+    </span>
+  </Link>
+</div>
+
 
         <div>
           {toggle ? (
             <AiOutlineClose
               onClick={() => setToggle(false)}
               size="1.5em"
-              className="cursor-pointer text-gray-600 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400 transition duration-300 lg:hidden transform -translate-x-[1.2cm]"
+              className="cursor-pointer text-gray-600 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400 transition duration-300 lg:hidden transform -translate-x-[0.8cm]"
             />
           ) : (
             <HiMenuAlt1
               onClick={() => setToggle(true)}
               size="1.5em"
-              className="cursor-pointer text-gray-600 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400 transition duration-300 lg:hidden transform -translate-x-[1.2cm]"
+              className="cursor-pointer text-gray-600 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400 transition duration-300 lg:hidden transform -translate-x-[0.8cm]"
             />
           )}
           <div className="hidden lg:flex space-x-2">
