@@ -1,6 +1,7 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Nav from './components/Nav';
 import Main from './components/Main.jsx';
+import About from './components/pages/About.jsx';
 import Contact from './components/pages/Contact';
 import Resume from './components/pages/Resume.jsx';
 import Portfolio from './components/pages/Portfolio.jsx';
@@ -84,6 +85,7 @@ export default function App() {
         <div className="flex-grow bg-gray-100 dark:bg-gray-900 text-gray-900 dark:text-gray-100 pb-20 font-inter">
           <Routes>
             <Route path="/" element={<Main />} />
+            <Route path="/About" element={<About />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/resume" element={<Resume />} />
             <Route path="/portfolio" element={<Portfolio />} />

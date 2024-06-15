@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import profilePic1 from '../assets/Yukitoshi1.png';
 import profilePic2 from '../assets/Yukitoshi2.png';
 
 const Homepage = () => {
   const images = [profilePic1, profilePic2];
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const navigate = useNavigate();
 
   const handleNextImage = () => {
     setCurrentImageIndex((prevIndex) => (prevIndex + 1) % images.length);
@@ -25,6 +27,10 @@ const Homepage = () => {
         }`}
       />
     ));
+  };
+
+  const handleSeeMore = () => {
+    navigate('/about');
   };
 
   return (
@@ -67,68 +73,14 @@ const Homepage = () => {
                 <hr className="mb-8 opacity-25 border-t-4 border-indigo-300 w-full" />
                 <div className="mb-8 text-center lg:text-justify">
                   <p>
-                    I'm a mathematics and statistics graduate from the
-                    University of Sydney, with a passion for leveraging data to
-                    drive meaningful insights. Through the university's coding
-                    bootcamp, I've mastered full-stack web development, adding a
-                    versatile skill set to my analytical toolbox. Whether it's
-                    crafting interactive web applications or diving deep into
-                    data analysis, I'm dedicated to delivering impactful
-                    solutions.
+                    I'm a mathematics and statistics graduate from the University of Sydney, passionate about using data to drive insights. I've mastered full-stack web development through the university's coding bootcamp and completed a graduate certificate in data science, enhancing my analytical skills. I was one of the top 100 candidates selected for the Amazon Summer School Machine Learning Bootcamp. At university, I held executive roles in various societies, developing leadership and collaboration skills. Professionally, I've worked in administrative and supervisory roles, taught primary school coding, and authored a Math Extension 1 textbook. My efforts have been recognised with awards, including life membership in the University of Sydney Union and the Data Society's Best Large Club award. This blend of education, practical experience, and leadership equips me to tackle challenges in data science and web development.
                   </p>
-                  <br />
-                  <p>
-                    I have also completed a graduate certificate in data science
-                    at the University of Sydney, further enhancing my ability to
-                    work with complex datasets and apply advanced analytical
-                    techniques. In addition, I was one of the 100 top-selected
-                    candidates in ANZ to participate in the Amazon Summer School
-                    Machine Learning Bootcamp, where I gained hands-on
-                    experience in machine learning and its applications in
-                    real-world scenarios.
-                  </p>
-                  <br />
-                  <p>
-                    My university experience was enriched by my active
-                    involvement in various societies. I served as an executive
-                    in several societies at the University of Sydney, including
-                    the Mathematics Society, Data Society, Statistics Society,
-                    Business Analytics Association, Business Information Systems
-                    Association, Cyber Security Society, and Quadball Society.
-                    These roles allowed me to develop leadership skills and
-                    collaborate with peers who share my interests.
-                  </p>
-                  <br />
-                  <p>
-                    Professionally, I have held various roles across different
-                    organisations. I have worked in administrative positions and
-                    supervisory roles, gaining valuable management experience.
-                    As a head teacher, I taught primary school coding, leading
-                    educational programs and developing curricula. I authored a
-                    Math Extension 1 textbook, demonstrating my expertise and
-                    commitment to education. As a peer mentor for postgraduate
-                    engineering and undergraduate science students at the
-                    University of Sydney, I guided mentees in their transition
-                    to university life. Additionally, I hold RSA, First Aid, and
-                    Mental Health First Aid certifications.
-                  </p>
-                  <br />
-                  <p>
-                    My efforts have been recognised with several awards: Life
-                    membership for the University of Sydney Union in 2022, the
-                    Data Society's Best Large Club (Dave Burnett Award) in 2023,
-                    and winning the Quadball National Championships in 2022. In
-                    2023, I was honored to be selected for the state NSW team,
-                    where we emerged victorious.
-                  </p>
-                  <br />
-                  <p>
-                    This combination of formal education, practical experience,
-                    leadership roles, and diverse job responsibilities, along
-                    with my recognised achievements, equips me with the skills
-                    necessary to tackle a wide range of challenges in the fields
-                    of data science and web development.
-                  </p>
+                  <button
+                    onClick={handleSeeMore}
+                    className="bg-gradient-to-r from-purple-600 via-indigo-600 to-blue-600 text-white px-6 py-2 rounded-full text-sm font-medium transition-colors duration-300 hover:bg-gradient-to-r hover:from-purple-700 hover:via-indigo-700 hover:to-blue-700 mt-4"
+                  >
+                    See More
+                  </button>
                 </div>
               </div>
             </div>
