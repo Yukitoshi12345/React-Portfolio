@@ -31,22 +31,21 @@ const Nav = () => {
       style={{ fontFamily: 'math' }}
     >
       <div className="flex items-center justify-between p-6 lg:p-10 lg:flex-row">
-      <div className="flex items-center space-x-2 font-serif text-3xl tracking-wider">
-  <Link to="/" className="flex items-center">
-    <img
-      src={logo}
-      alt="Logo"
-      className="w-12 h-12 lg:w-16 lg:h-16 ml-2 sm:-ml-2"
-    />
-    <span className="ml-4 lg:ml-8 text-indigo-600 dark:text-indigo-400 sm:ml-2">
-      <span className="block text-2xl lg:hidden">Yukitoshi</span>
-      <span className="hidden lg:block text-3xl">
-        Yukitoshi Imaizumi-Zhou
-      </span>
-    </span>
-  </Link>
-</div>
-
+        <div className="flex items-center space-x-2 font-serif text-3xl tracking-wider">
+          <Link to="/" className="flex items-center ml-[-28px] lg:ml-0">
+            <img
+              src={logo}
+              alt="Logo"
+              className="w-12 h-12 lg:w-16 lg:h-16 ml-2 sm:-ml-2"
+            />
+            <span className="ml-4 lg:ml-8 text-indigo-600 dark:text-indigo-400 sm:ml-2">
+              <span className="block text-2xl lg:hidden">Yukitoshi</span>
+              <span className="hidden lg:block text-3xl">
+                Yukitoshi Imaizumi-Zhou
+              </span>
+            </span>
+          </Link>
+        </div>
 
         <div>
           {toggle ? (
