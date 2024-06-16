@@ -7,6 +7,7 @@ const Homepage = () => {
 
   const handleSeeMore = () => {
     navigate('/about');
+    window.scrollTo({ top: 0 });
   };
 
   return (

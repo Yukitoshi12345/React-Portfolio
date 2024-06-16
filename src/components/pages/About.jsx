@@ -86,7 +86,10 @@ const About = () => {
               </div>
               <div className="flex justify-center mt-[-10px] mb-10 sm:mt-6 lg:mt-[-20px]">
                 <button
-                  onClick={() => navigate('/')}
+                  onClick={() => {
+                    navigate('/');
+                    window.scrollTo({ top: 0 });
+                  }}
                   className="bg-gradient-to-r from-purple-600 via-indigo-600 to-blue-600 text-white px-6 py-2 rounded-full text-sm font-medium transition-colors duration-300 hover:bg-gradient-to-r hover:from-purple-700 hover:via-indigo-700 hover:to-blue-700 mt-4"
                 >
                   Back
