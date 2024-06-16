@@ -84,6 +84,14 @@ npm run dev
 
 ## Screenshot
 
+<b>Homepage:</b>
+
+![](/src/assets/screenshots/homepage.png)
+
+<br>
+
+
+
 ## Videos
 
 ## Output
