@@ -1,8 +1,8 @@
-import Homepage from "./Homepage";
+import Homepage from './Homepage';
 
 const Main = () => {
   return (
-    <div className="font-roboto bg-white-800 min-h-screen">
+    <div className="font-roboto bg-white-800 max-h-screen">
       <Homepage />
     </div>
   );

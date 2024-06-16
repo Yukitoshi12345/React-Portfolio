@@ -73,7 +73,22 @@ const Homepage = () => {
                 <hr className="mb-8 opacity-25 border-t-4 border-indigo-300 w-full" />
                 <div className="mb-8 text-center lg:text-justify">
                   <p>
-                    I'm a mathematics and statistics graduate from the University of Sydney, passionate about using data to drive insights. I've mastered full-stack web development through the university's coding bootcamp and completed a graduate certificate in data science, enhancing my analytical skills. I was one of the top 100 candidates selected for the Amazon Summer School Machine Learning Bootcamp. At university, I held executive roles in various societies, developing leadership and collaboration skills. Professionally, I've worked in administrative and supervisory roles, taught primary school coding, and authored a Math Extension 1 textbook. My efforts have been recognised with awards, including life membership in the University of Sydney Union and the Data Society's Best Large Club award. This blend of education, practical experience, and leadership equips me to tackle challenges in data science and web development.
+                    I'm a mathematics and statistics graduate from the
+                    University of Sydney, passionate about using data to drive
+                    insights. I've mastered full-stack web development through
+                    the university's coding bootcamp and completed a graduate
+                    certificate in data science, enhancing my analytical skills.
+                    I was one of the top 100 candidates selected for the Amazon
+                    Summer School Machine Learning Bootcamp. At university, I
+                    held executive roles in various societies, developing
+                    leadership and collaboration skills. Professionally, I've
+                    worked in administrative and supervisory roles, taught
+                    primary school coding, and authored a Math Extension 1
+                    textbook. My efforts have been recognised with awards,
+                    including life membership in the University of Sydney Union
+                    and the Data Society's Best Large Club award. This blend of
+                    education, practical experience, and leadership equips me to
+                    tackle challenges in data science and web development.
                   </p>
                   <button
                     onClick={handleSeeMore}
