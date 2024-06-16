@@ -32,7 +32,7 @@ const Nav = () => {
     >
       <div className="flex items-center justify-between p-6 lg:p-10 lg:flex-row">
         <div className="flex items-center space-x-2 font-serif text-3xl tracking-wider">
-          <Link to="/" className="flex items-center ml-[-28px] lg:ml-0">
+          <Link to="/" className="flex items-center ml-[-20px] lg:ml-0">
             <img
               src={logo}
               alt="Logo"
