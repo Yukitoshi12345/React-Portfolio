@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import profilePic1 from '../assets/Yukitoshi1.png';
-import profilePic2 from '../assets/Yukitoshi2.png';
+import profilePic1 from '../assets/Yukitoshi4.png';
+import profilePic2 from '../assets/Yukitoshi5.png';
 
 const Homepage = () => {
   const images = [profilePic1, profilePic2];
@@ -37,7 +37,7 @@ const Homepage = () => {
     <>
       <section id="about" className="section bg-secondary">
         <div className="container mx-auto">
-          <div className="flex flex-col xl:flex-row gap-24">
+          <div className="flex flex-col xl:flex-row gap-24 mt-32">
             <div className="relative mt-20 lg:mt-40 lg:ml-[-2rem]">
               <div className="flex items-center justify-center">
                 <button
@@ -48,7 +48,7 @@ const Homepage = () => {
                 </button>
                 <div className="mx-4">
                   <img
-                    className="md:mx-auto lg:mx-0 rounded-full"
+                    className="md:mx-auto lg:mx-0"
                     src={images[currentImageIndex]}
                     alt="Yukitoshi Imaizumi-Zhou"
                   />
