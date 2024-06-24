@@ -92,14 +92,13 @@ const Contact = () => {
             Contact Me
           </h2>
           <p className="text-paragraph mb-4 lg:mb-12 max-w-[800px]">
-            If you have any questions or need clarification regarding the source
-            code of any of the repositories, please don&apos;t hesitate to ask.
-            I&apos;m here to assist! 👩‍💻
+            If you have any questions or need clarification on anything, please
+            feel free to reach out. I&apos;m here to assist! 👩‍💻
           </p>
         </div>
 
         <div className="flex flex-col lg:gap-x-8 lg:flex-row">
-          <div className="flex flex-1 flex-col items-start space-y-8 mb-12 lg:mb-0 lg:pt-2">
+          <div className="flex flex-1 flex-col items-start space-y-8 mt-24 lg:mt-24 lg:pt-2">
             <div className="flex flex-col lg:flex-row gap-x-4">
               <div className="text-accent rounded-sm w-14 h-14 flex items-start justify-center mt-2 mb-4 lg:mb-0 text-2xl">
                 <BsEnvelope />
@@ -107,7 +106,7 @@ const Contact = () => {
               <div>
                 <h4 className="font-body text-xl mb-1">Have a question?</h4>
                 <p className="mb-1">Email me at:</p>
-                <p className="text-accent font-normal">
+                <p>
                   <a href="mailto:yukitoshi.imaizumizhou@gmail.com">
                     yukitoshi.imaizumizhou@gmail.com
                   </a>
