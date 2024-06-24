@@ -83,7 +83,7 @@ const Nav = () => {
             >
               <span>Portfolio</span>
             </NavLink>
-            <NavLink
+            {/* <NavLink
               to="/contact"
               className={({ isActive }) =>
                 isActive
@@ -92,7 +92,7 @@ const Nav = () => {
               }
             >
               <span>Contact</span>
-            </NavLink>
+            </NavLink> */}
             <NavLink
               to="/resume"
               className={({ isActive }) =>

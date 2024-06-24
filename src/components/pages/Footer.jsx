@@ -1,5 +1,5 @@
 import React from 'react';
-import { BsGithub, BsLinkedin, BsTwitter } from 'react-icons/bs';
+import { BsGithub, BsLinkedin, BsEnvelope } from 'react-icons/bs';
 
 const Footer = () => {
   return (
@@ -29,11 +29,11 @@ const Footer = () => {
           />
         </a>
         <a
-          href="https://www.twitter.com/"
+          href="mailto:yukitoshi.imaizumizhou@gmail.com"
           target="_blank"
           rel="noopener noreferrer"
         >
-          <BsTwitter
+          <BsEnvelope
             size={35}
             className="text-purple-600 hover:text-purple-800 transition-all duration-300 transform hover:scale-110 md:size-45"
           />

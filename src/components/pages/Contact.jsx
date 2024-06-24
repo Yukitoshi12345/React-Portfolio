@@ -17,7 +17,7 @@ const Contact = () => {
     message: '',
   });
   const [file, setFile] = useState(null);
-  const [termsAccepted, setTermsAccepted] = useState(false);
+  // const [termsAccepted, setTermsAccepted] = useState(false); // Commented out the termsAccepted state
   const [captchaValid, setCaptchaValid] = useState(false);
   const [modalIsOpen, setModalIsOpen] = useState(false);
 
@@ -33,9 +33,9 @@ const Contact = () => {
     setFile(e.target.files[0]);
   };
 
-  const handleTermsChange = (e) => {
-    setTermsAccepted(e.target.checked);
-  };
+  // const handleTermsChange = (e) => {
+  //   setTermsAccepted(e.target.checked);
+  // };
 
   const handleCaptchaChange = (value) => {
     setCaptchaValid(value !== null);
@@ -44,7 +44,11 @@ const Contact = () => {
   const sendEmail = (e) => {
     e.preventDefault();
 
-    if (formData.user_email.includes('@') && termsAccepted && captchaValid) {
+    if (
+      formData.user_email.includes('@') /* && termsAccepted */ &&
+      captchaValid
+    ) {
+      // termsAccepted check commented out
       const formDataWithFile = new FormData(form.current);
       if (file) {
         formDataWithFile.append('file', file);
@@ -68,7 +72,7 @@ const Contact = () => {
               message: '',
             });
             setFile(null);
-            setTermsAccepted(false);
+            // setTermsAccepted(false);
             setCaptchaValid(false);
             setModalIsOpen(true);
           },
@@ -78,9 +82,7 @@ const Contact = () => {
           },
         );
     } else {
-      alert(
-        'Please fill in all required fields, accept the terms, and complete the reCAPTCHA.',
-      );
+      alert('Please fill in all required fields and complete the reCAPTCHA.');
     }
   };
 
@@ -188,6 +190,7 @@ const Contact = () => {
             File cannot exceed 20MB.
           </small>
         </label>
+        {/*
         <label className="flex items-center mb-4">
           <input
             type="checkbox"
@@ -203,6 +206,7 @@ const Contact = () => {
             </a>
           </span>
         </label>
+        */}
         <div className="mb-6">
           <ReCAPTCHA
             ref={recaptchaRef}
