@@ -2,6 +2,7 @@ import React, { useRef, useState } from 'react';
 import emailjs from '@emailjs/browser';
 import Modal from 'react-modal';
 import ReCAPTCHA from 'react-google-recaptcha';
+import { BsEnvelope, BsGeoAlt } from 'react-icons/bs';
 
 Modal.setAppElement('#root');
 
@@ -17,7 +18,6 @@ const Contact = () => {
     message: '',
   });
   const [file, setFile] = useState(null);
-  // const [termsAccepted, setTermsAccepted] = useState(false); // Commented out the termsAccepted state
   const [captchaValid, setCaptchaValid] = useState(false);
   const [modalIsOpen, setModalIsOpen] = useState(false);
 
@@ -33,10 +33,6 @@ const Contact = () => {
     setFile(e.target.files[0]);
   };
 
-  // const handleTermsChange = (e) => {
-  //   setTermsAccepted(e.target.checked);
-  // };
-
   const handleCaptchaChange = (value) => {
     setCaptchaValid(value !== null);
   };
@@ -44,11 +40,7 @@ const Contact = () => {
   const sendEmail = (e) => {
     e.preventDefault();
 
-    if (
-      formData.user_email.includes('@') /* && termsAccepted */ &&
-      captchaValid
-    ) {
-      // termsAccepted check commented out
+    if (formData.user_email.includes('@') && captchaValid) {
       const formDataWithFile = new FormData(form.current);
       if (file) {
         formDataWithFile.append('file', file);
@@ -72,7 +64,6 @@ const Contact = () => {
               message: '',
             });
             setFile(null);
-            // setTermsAccepted(false);
             setCaptchaValid(false);
             setModalIsOpen(true);
           },
@@ -91,136 +82,164 @@ const Contact = () => {
   };
 
   return (
-    <div
-      className="max-w-3xl mx-auto my-10 p-6 shadow-lg rounded-lg bg-gray-100 dark:bg-gray-900 text-gray-900 dark:text-gray-100"
-      style={{ marginTop: '2rem', fontFamily: 'math' }}
-    >
-      <h1 className="text-4xl font-bold text-center mb-6 text-indigo-600 dark:text-indigo-400">
-        Contact Me
-      </h1>
-      <form ref={form} onSubmit={sendEmail}>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
-          <label className="block">
-            <span className="text-gray-800 dark:text-gray-300">
-              First Name:
-            </span>
-            <input
-              type="text"
-              name="first_name"
-              value={formData.first_name}
-              onChange={handleChange}
-              className="mt-1 block w-full px-3 py-2 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-md focus:outline-none focus:border-indigo-500 dark:focus:border-indigo-400"
-              placeholder="Enter your first name"
-              required
-            />
-          </label>
-          <label className="block">
-            <span className="text-gray-800 dark:text-gray-300">Last Name:</span>
-            <input
-              type="text"
-              name="last_name"
-              value={formData.last_name}
-              onChange={handleChange}
-              className="mt-1 block w-full px-3 py-2 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-md focus:outline-none focus:border-indigo-500 dark:focus:border-indigo-400"
-              placeholder="Enter your last name"
-              required
-            />
-          </label>
-          <label className="block">
-            <span className="text-gray-800 dark:text-gray-300">Email:</span>
-            <input
-              type="email"
-              name="user_email"
-              value={formData.user_email}
-              onChange={handleChange}
-              className="mt-1 block w-full px-3 py-2 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-md focus:outline-none focus:border-indigo-500 dark:focus:border-indigo-400"
-              placeholder="Enter your email"
-              required
-            />
-          </label>
-          <label className="block">
-            <span className="text-gray-800 dark:text-gray-300">
-              Phone Number:
-            </span>
-            <input
-              type="text"
-              name="phone_number"
-              value={formData.phone_number}
-              onChange={handleChange}
-              className="mt-1 block w-full px-3 py-2 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-md focus:outline-none focus:border-indigo-500 dark:focus:border-indigo-400"
-              placeholder="Enter your phone number (optional)"
-            />
-          </label>
+    <section className="section bg-leather" id="contact">
+      <div className="container mx-auto">
+        <div className="flex flex-col items-center text-center">
+          <h2
+            className="text-center text-4xl font-bold mt-10 mb-6 text-indigo-600"
+            style={{ fontFamily: 'math' }}
+          >
+            Contact Me
+          </h2>
+          <p className="text-paragraph mb-4 lg:mb-12 max-w-[800px]">
+            If you have any questions or need clarification regarding the source
+            code of any of the repositories, please don&apos;t hesitate to ask.
+            I&apos;m here to assist! 👩‍💻
+          </p>
         </div>
-        <label className="block mb-4">
-          <span className="text-gray-800 dark:text-gray-300">Subject:</span>
-          <input
-            type="text"
-            name="subject"
-            value={formData.subject}
-            onChange={handleChange}
-            className="mt-1 block w-full px-3 py-2 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-md focus:outline-none focus:border-indigo-500 dark:focus:border-indigo-400"
-            placeholder="Enter the subject"
-            required
-          />
-        </label>
-        <label className="block mb-6">
-          <span className="text-gray-800 dark:text-gray-300">Message:</span>
-          <textarea
-            name="message"
-            value={formData.message}
-            onChange={handleChange}
-            className="mt-1 block w-full px-3 py-2 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-md focus:outline-none focus:border-indigo-500 dark:focus:border-indigo-400"
-            rows="4"
-            placeholder="Your message"
-            required
-          ></textarea>
-        </label>
-        <label className="block mb-4">
-          <span className="text-gray-800 dark:text-gray-300">
-            Upload File (optional):
-          </span>
-          <input
-            type="file"
-            name="file"
-            onChange={handleFileChange}
-            className="mt-1 block w-full px-3 py-2 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-md focus:outline-none focus:border-indigo-500 dark:focus:border-indigo-400"
-          />
-          <small className="text-gray-600 dark:text-gray-400">
-            File cannot exceed 20MB.
-          </small>
-        </label>
-        {/*
-        <label className="flex items-center mb-4">
-          <input
-            type="checkbox"
-            name="terms"
-            checked={termsAccepted}
-            onChange={handleTermsChange}
-            className="mr-2"
-          />
-          <span className="text-gray-800 dark:text-gray-300">
-            I accept the{' '}
-            <a href="#" className="text-indigo-600 dark:text-indigo-400">
-              terms and conditions
-            </a>
-          </span>
-        </label>
-        */}
-        <div className="mb-6">
-          <ReCAPTCHA
-            ref={recaptchaRef}
-            sitekey={import.meta.env.VITE_APP_RECAPTCHA_SITE_KEY}
-            onChange={handleCaptchaChange}
-          />
+
+        <div className="flex flex-col lg:gap-x-8 lg:flex-row">
+          <div className="flex flex-1 flex-col items-start space-y-8 mb-12 lg:mb-0 lg:pt-2">
+            <div className="flex flex-col lg:flex-row gap-x-4">
+              <div className="text-accent rounded-sm w-14 h-14 flex items-start justify-center mt-2 mb-4 lg:mb-0 text-2xl">
+                <BsEnvelope />
+              </div>
+              <div>
+                <h4 className="font-body text-xl mb-1">Have a question?</h4>
+                <p className="mb-1">Email me at:</p>
+                <p className="text-accent font-normal">
+                  <a href="mailto:yukitoshi.imaizumizhou@gmail.com">
+                    yukitoshi.imaizumizhou@gmail.com
+                  </a>
+                </p>
+              </div>
+            </div>
+            <div className="flex flex-col lg:flex-row gap-x-4">
+              <div className="text-accent rounded-sm w-14 h-14 flex items-start justify-center mt-2 mb-4 lg:mb-0 text-2xl">
+                <BsGeoAlt />
+              </div>
+              <div>
+                <h4 className="font-body text-xl mb-1">Current location</h4>
+                <p className="mb-1">Sydney, Australia</p>
+              </div>
+            </div>
+          </div>
+
+          <form
+            ref={form}
+            onSubmit={sendEmail}
+            className="space-y-5 w-full max-w-[780px]"
+          >
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+              <label className="block">
+                <span className="text-gray-800 dark:text-gray-300">
+                  First Name:
+                </span>
+                <input
+                  type="text"
+                  name="first_name"
+                  value={formData.first_name}
+                  onChange={handleChange}
+                  className="mt-1 block w-full px-3 py-2 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-md focus:outline-none focus:border-indigo-500 dark:focus:border-indigo-400"
+                  placeholder="Enter your first name"
+                  required
+                />
+              </label>
+              <label className="block">
+                <span className="text-gray-800 dark:text-gray-300">
+                  Last Name:
+                </span>
+                <input
+                  type="text"
+                  name="last_name"
+                  value={formData.last_name}
+                  onChange={handleChange}
+                  className="mt-1 block w-full px-3 py-2 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-md focus:outline-none focus:border-indigo-500 dark:focus:border-indigo-400"
+                  placeholder="Enter your last name"
+                  required
+                />
+              </label>
+              <label className="block">
+                <span className="text-gray-800 dark:text-gray-300">Email:</span>
+                <input
+                  type="email"
+                  name="user_email"
+                  value={formData.user_email}
+                  onChange={handleChange}
+                  className="mt-1 block w-full px-3 py-2 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-md focus:outline-none focus:border-indigo-500 dark:focus:border-indigo-400"
+                  placeholder="Enter your email"
+                  required
+                />
+              </label>
+              <label className="block">
+                <span className="text-gray-800 dark:text-gray-300">
+                  Phone Number:
+                </span>
+                <input
+                  type="text"
+                  name="phone_number"
+                  value={formData.phone_number}
+                  onChange={handleChange}
+                  className="mt-1 block w-full px-3 py-2 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-md focus:outline-none focus:border-indigo-500 dark:focus:border-indigo-400"
+                  placeholder="Enter your phone number (optional)"
+                />
+              </label>
+            </div>
+            <label className="block mb-4">
+              <span className="text-gray-800 dark:text-gray-300">Subject:</span>
+              <input
+                type="text"
+                name="subject"
+                value={formData.subject}
+                onChange={handleChange}
+                className="mt-1 block w-full px-3 py-2 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-md focus:outline-none focus:border-indigo-500 dark:focus:border-indigo-400"
+                placeholder="Enter the subject"
+                required
+              />
+            </label>
+            <label className="block mb-6">
+              <span className="text-gray-800 dark:text-gray-300">Message:</span>
+              <textarea
+                name="message"
+                value={formData.message}
+                onChange={handleChange}
+                className="mt-1 block w-full px-3 py-2 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-md focus:outline-none focus:border-indigo-500 dark:focus:border-indigo-400"
+                rows="4"
+                placeholder="Your message"
+                required
+              ></textarea>
+            </label>
+            <label className="block mb-4">
+              <span className="text-gray-800 dark:text-gray-300">
+                Upload File (optional):
+              </span>
+              <input
+                type="file"
+                name="file"
+                onChange={handleFileChange}
+                className="mt-1 block w-full px-3 py-2 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-md focus:outline-none focus:border-indigo-500 dark:focus:border-indigo-400"
+              />
+              <small className="text-gray-600 dark:text-gray-400">
+                File cannot exceed 20MB.
+              </small>
+            </label>
+            <div className="mb-6">
+              <ReCAPTCHA
+                ref={recaptchaRef}
+                sitekey={import.meta.env.VITE_APP_RECAPTCHA_SITE_KEY}
+                onChange={handleCaptchaChange}
+              />
+            </div>
+            <button
+              type="submit"
+              className="w-full bg-gradient-to-r from-purple-600 via-indigo-600 to-blue-600 text-white font-bold py-2 px-4 rounded-full focus:outline-none focus:shadow-outline transition-colors duration-300 hover:from-purple-700 hover:via-indigo-700 hover:to-blue-700"
+            >
+              Submit
+            </button>
+          </form>
         </div>
-        <button
-          type="submit"
-          className="w-full bg-gradient-to-r from-purple-600 via-indigo-600 to-blue-600 text-white font-bold py-2 px-4 rounded-full focus:outline-none focus:shadow-outline transition-colors duration-300 hover:from-purple-700 hover:via-indigo-700 hover:to-blue-700"
-        >
-          Submit
-        </button>
-      </form>
+      </div>
+
       <Modal
         isOpen={modalIsOpen}
         onRequestClose={closeModal}
@@ -241,7 +260,7 @@ const Contact = () => {
           </button>
         </div>
       </Modal>
-    </div>
+    </section>
   );
 };
 
