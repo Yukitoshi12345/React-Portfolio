@@ -40,21 +40,34 @@ const Contact = () => {
   const sendEmail = (e) => {
     e.preventDefault();
 
+    console.log("Form Data: ", formData);
+    console.log("File: ", file);
+    console.log("Captcha Valid: ", captchaValid);
+
     if (formData.user_email.includes('@') && captchaValid) {
       const formDataWithFile = new FormData(form.current);
+      formDataWithFile.append('first_name', formData.first_name);
+      formDataWithFile.append('last_name', formData.last_name);
+      formDataWithFile.append('user_email', formData.user_email);
+      formDataWithFile.append('phone_number', formData.phone_number);
+      formDataWithFile.append('subject', formData.subject);
+      formDataWithFile.append('message', formData.message);
       if (file) {
         formDataWithFile.append('file', file);
       }
+
+      console.log("Form Data with File: ", formDataWithFile);
 
       emailjs
         .sendForm(
           import.meta.env.VITE_APP_EMAILJS_SERVICE_ID,
           import.meta.env.VITE_APP_EMAILJS_TEMPLATE_ID,
-          formDataWithFile,
+          form.current,
           import.meta.env.VITE_APP_EMAILJS_PUBLIC_KEY,
         )
         .then(
-          () => {
+          (result) => {
+            console.log('SUCCESS!', result.text);
             setFormData({
               first_name: '',
               last_name: '',
@@ -264,3 +277,5 @@ const Contact = () => {
 };
 
 export default Contact;
+
+
