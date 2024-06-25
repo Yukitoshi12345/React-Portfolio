@@ -5,6 +5,8 @@ import bootstrap_logo from '../../assets/skills/bootstrap.png';
 import bulma_logo from '../../assets/skills/bulma.png';
 import css_logo from '../../assets/skills/css3.png';
 import express_logo from '../../assets/skills/expressjs.png';
+import firebase_logo from '../../assets/skills/firebase.png';
+import flask_logo from '../../assets/skills/flask.png';
 import git_logo from '../../assets/skills/git.png';
 import github_logo from '../../assets/skills/github.png';
 import gitlab_logo from '../../assets/skills/gitlab.png';
@@ -148,6 +150,16 @@ export const skills = [
   {
     image: python_logo,
     name: 'Python',
+    tech: 'Backend',
+  },
+  {
+    image: flask_logo,
+    name: 'Flask',
+    tech: 'Backend',
+  },
+  {
+    image: firebase_logo,
+    name: 'Firebase',
     tech: 'Backend',
   },
 
