@@ -17,7 +17,7 @@ import html_logo from '../../assets/skills/html5.png';
 import insomnia_logo from '../../assets/skills/insomnia.png';
 import jest_logo from '../../assets/skills/jest.png';
 import jquery_logo from '../../assets/skills/jquery.png';
-import js_logo from '../../assets/skills/js.png';
+import javascript_logo from '../../assets/skills/javascript.png';
 import materialize_logo from '../../assets/skills/materialize.png';
 import mongodb_logo from '../../assets/skills/mongodb.png';
 import mongoose_logo from '../../assets/skills/mongoose.png';
@@ -31,6 +31,7 @@ import python_logo from '../../assets/skills/python.png';
 import react_logo from '../../assets/skills/reactjs.png';
 import sequelize_logo from '../../assets/skills/sequelize.png';
 import tailwind_logo from '../../assets/skills/tailwindcss.png';
+import typescript_logo from '../../assets/skills/typescript.png';
 import vite_logo from '../../assets/skills/vite.png';
 import vue_logo from '../../assets/skills/vue.png';
 import webpack_logo from '../../assets/skills/webpack.png';
@@ -71,8 +72,13 @@ export const skills = [
     tech: 'Frontend',
   },
   {
-    image: js_logo,
+    image: javascript_logo,
     name: 'JavaScript',
+    tech: 'Frontend',
+  },
+  {
+    image: typescript_logo,
+    name: 'TypeScript',
     tech: 'Frontend',
   },
   {
