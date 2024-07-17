@@ -286,13 +286,14 @@ const Resume = () => {
       <Skills stack={'Backend'} />
       <Skills stack={'Neither'} />
 
-      <a
+      {/* Download Resume */}
+      {/* <a
         href={ResumePDF}
         download
         className="mt-6 flex justify-center bg-gradient-to-r from-purple-600 via-indigo-600 to-blue-600 text-white font-bold py-2 px-6 rounded hover:bg-gradient-to-r hover:from-purple-700 hover:via-indigo-700 hover:to-blue-700 transition-colors duration-300"
       >
         Download Resume
-      </a>
+      </a> */}
     </div>
   );
 };
