@@ -77,16 +77,6 @@ export const skills = [
     tech: 'Frontend',
   },
   {
-    image: typescript_logo,
-    name: 'TypeScript',
-    tech: 'Frontend',
-  },
-  {
-    image: jquery_logo,
-    name: 'jQuery',
-    tech: 'Frontend',
-  },
-  {
     image: handlebars_logo,
     name: 'Handlebars',
     tech: 'Frontend',
@@ -208,11 +198,6 @@ export const skills = [
   {
     image: insomnia_logo,
     name: 'Insomnia',
-    tech: 'Neither',
-  },
-  {
-    image: aws_logo,
-    name: 'aws',
     tech: 'Neither',
   },
   {
