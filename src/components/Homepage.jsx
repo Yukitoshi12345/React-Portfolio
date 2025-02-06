@@ -20,13 +20,13 @@ const Homepage = () => {
             <img
               className="w-80 h-80" // Adjust the width and height as needed
               src={profilePic1}
-              alt="Yukitoshi Imaizumi-Zhou"
+              alt="Yukitoshi Imaizumi Zhou"
             />
           </div>
 
           <div className="lg:w-2/3 flex flex-col items-center text-center lg:items-start lg:text-left mt-[-60px] lg:mt-5">
             <h2 className="text-3xl lg:text-4xl font-medium lg:font-extrabold mb-3 before:content-about relative before:absolute before:opacity-25 before:-top-[2rem] before:hidden before:lg:block">
-              Yukitoshi Imaizumi-Zhou
+              Yukitoshi Imaizumi Zhou
             </h2>
             <p className="text-accent">
               Full-stack Web Developer and Data Analyst

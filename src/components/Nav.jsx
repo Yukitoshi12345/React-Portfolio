@@ -41,7 +41,7 @@ const Nav = () => {
             <span className="ml-4 lg:ml-8 text-indigo-600 dark:text-indigo-400 sm:ml-2">
               <span className="block text-2xl lg:hidden">Yukitoshi</span>
               <span className="hidden lg:block text-3xl">
-                Yukitoshi Imaizumi-Zhou
+                Yukitoshi Imaizumi Zhou
               </span>
             </span>
           </Link>

@@ -40,7 +40,7 @@ const Footer = () => {
         </a>
       </div>
       <div className="text-center text-sm md:text-base">
-        © {new Date().getFullYear()} Yukitoshi Imaizumi-Zhou. All Rights
+        © {new Date().getFullYear()} Yukitoshi Imaizumi Zhou. All Rights
         Reserved.
       </div>
     </footer>

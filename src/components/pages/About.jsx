@@ -14,7 +14,7 @@ const About = () => {
           <div className="flex flex-col items-center text-center lg:items-start lg:text-left mt-20 lg:mt-5">
             <div className="flex flex-col">
               <h2 className="text-3xl lg:text-4xl font-medium lg:font-extrabold mb-3 before:content-about relative before:absolute before:opacity-25 before:-top-[2rem] before:hidden before:lg:block">
-                Yukitoshi Imaizumi-Zhou
+                Yukitoshi Imaizumi Zhou
               </h2>
               <p className="text-accent">
                 Full-stack Web Developer and Data Analyst
