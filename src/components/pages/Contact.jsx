@@ -3,8 +3,6 @@ import emailjs from '@emailjs/browser';
 import Modal from 'react-modal';
 import ReCAPTCHA from 'react-google-recaptcha';
 import { BsEnvelope, BsGeoAlt } from 'react-icons/bs';
-import { storage } from '../../firebase';
-import { ref, uploadBytes, getDownloadURL } from 'firebase/storage';
 
 Modal.setAppElement('#root');
 
@@ -19,7 +17,6 @@ const Contact = () => {
     subject: '',
     message: '',
   });
-  const [file, setFile] = useState(null);
   const [captchaValid, setCaptchaValid] = useState(false);
   const [modalIsOpen, setModalIsOpen] = useState(false);
 
@@ -31,10 +28,6 @@ const Contact = () => {
     }));
   };
 
-  const handleFileChange = (e) => {
-    setFile(e.target.files[0]);
-  };
-
   const handleCaptchaChange = (value) => {
     setCaptchaValid(value !== null);
   };
@@ -43,7 +36,6 @@ const Contact = () => {
     e.preventDefault();
 
     console.log('Form Data: ', formData);
-    console.log('File: ', file);
     console.log('Captcha Valid: ', captchaValid);
 
     if (formData.user_email.includes('@') && captchaValid) {
@@ -56,75 +48,32 @@ const Contact = () => {
         message: formData.message,
       };
 
-      if (file) {
-        if (file.size > 20 * 1024 * 1024) {
-          alert('File size exceeds 20MB limit.');
-          return;
-        }
-
-        const storageRef = ref(storage, `uploads/${file.name}`);
-        uploadBytes(storageRef, file).then((snapshot) => {
-          getDownloadURL(snapshot.ref).then((downloadURL) => {
-            formDataObject.file_url = downloadURL;
-
-            emailjs
-              .send(
-                import.meta.env.VITE_APP_EMAILJS_SERVICE_ID,
-                import.meta.env.VITE_APP_EMAILJS_TEMPLATE_ID,
-                formDataObject,
-                import.meta.env.VITE_APP_EMAILJS_PUBLIC_KEY,
-              )
-              .then(
-                (result) => {
-                  console.log('SUCCESS!', result.text);
-                  setFormData({
-                    first_name: '',
-                    last_name: '',
-                    user_email: '',
-                    phone_number: '',
-                    subject: '',
-                    message: '',
-                  });
-                  setFile(null);
-                  setCaptchaValid(false);
-                  setModalIsOpen(true);
-                },
-                (error) => {
-                  console.log('FAILED...', error.text);
-                  alert('Failed to send message, please try again.');
-                },
-              );
-          });
-        });
-      } else {
-        emailjs
-          .send(
-            import.meta.env.VITE_APP_EMAILJS_SERVICE_ID,
-            import.meta.env.VITE_APP_EMAILJS_TEMPLATE_ID,
-            formDataObject,
-            import.meta.env.VITE_APP_EMAILJS_PUBLIC_KEY,
-          )
-          .then(
-            (result) => {
-              console.log('SUCCESS!', result.text);
-              setFormData({
-                first_name: '',
-                last_name: '',
-                user_email: '',
-                phone_number: '',
-                subject: '',
-                message: '',
-              });
-              setFile(null);
-              setCaptchaValid(false);
-              setModalIsOpen(true);
-            },
-            (error) => {
-              console.log('FAILED...', error.text);
-              alert('Failed to send message, please try again.');
-            },
-          );
-      }
+      emailjs
+        .send(
+          import.meta.env.VITE_APP_EMAILJS_SERVICE_ID,
+          import.meta.env.VITE_APP_EMAILJS_TEMPLATE_ID,
+          formDataObject,
+          import.meta.env.VITE_APP_EMAILJS_PUBLIC_KEY,
+        )
+        .then(
+          (result) => {
+            console.log('SUCCESS!', result.text);
+            setFormData({
+              first_name: '',
+              last_name: '',
+              user_email: '',
+              phone_number: '',
+              subject: '',
+              message: '',
+            });
+            setCaptchaValid(false);
+            setModalIsOpen(true);
+          },
+          (error) => {
+            console.log('FAILED...', error.text);
+            alert('Failed to send message, please try again.');
+          },
+        );
     } else {
       alert('Please fill in all required fields and complete the reCAPTCHA.');
     }
@@ -260,20 +209,6 @@ const Contact = () => {
                 placeholder="Your message"
                 required
               ></textarea>
-            </label>
-            <label className="block mb-4">
-              <span className="text-gray-800 dark:text-gray-300">
-                Upload File (optional):
-              </span>
-              <input
-                type="file"
-                name="file"
-                onChange={handleFileChange}
-                className="mt-1 block w-full px-3 py-2 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-md focus:outline-none focus:border-indigo-500 dark:focus:border-indigo-400"
-              />
-              <small className="text-gray-600 dark:text-gray-400">
-                File cannot exceed 20MB.
-              </small>
             </label>
             <div className="mb-6">
               <ReCAPTCHA
