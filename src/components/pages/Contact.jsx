@@ -57,6 +57,11 @@ const Contact = () => {
       };
 
       if (file) {
+        if (file.size > 20 * 1024 * 1024) {
+          alert('File size exceeds 20MB limit.');
+          return;
+        }
+
         const storageRef = ref(storage, `uploads/${file.name}`);
         uploadBytes(storageRef, file).then((snapshot) => {
           getDownloadURL(snapshot.ref).then((downloadURL) => {
