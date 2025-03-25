@@ -3,6 +3,8 @@ import emailjs from '@emailjs/browser';
 import Modal from 'react-modal';
 import ReCAPTCHA from 'react-google-recaptcha';
 import { BsEnvelope, BsGeoAlt } from 'react-icons/bs';
+import { storage } from '../../firebase';
+import { ref, uploadBytes, getDownloadURL } from 'firebase/storage';
 
 Modal.setAppElement('#root');
 
@@ -40,51 +42,84 @@ const Contact = () => {
   const sendEmail = (e) => {
     e.preventDefault();
 
-    console.log("Form Data: ", formData);
-    console.log("File: ", file);
-    console.log("Captcha Valid: ", captchaValid);
+    console.log('Form Data: ', formData);
+    console.log('File: ', file);
+    console.log('Captcha Valid: ', captchaValid);
 
     if (formData.user_email.includes('@') && captchaValid) {
-      const formDataWithFile = new FormData(form.current);
-      formDataWithFile.append('first_name', formData.first_name);
-      formDataWithFile.append('last_name', formData.last_name);
-      formDataWithFile.append('user_email', formData.user_email);
-      formDataWithFile.append('phone_number', formData.phone_number);
-      formDataWithFile.append('subject', formData.subject);
-      formDataWithFile.append('message', formData.message);
+      const formDataObject = {
+        first_name: formData.first_name,
+        last_name: formData.last_name,
+        user_email: formData.user_email,
+        phone_number: formData.phone_number,
+        subject: formData.subject,
+        message: formData.message,
+      };
+
       if (file) {
-        formDataWithFile.append('file', file);
+        const storageRef = ref(storage, `uploads/${file.name}`);
+        uploadBytes(storageRef, file).then((snapshot) => {
+          getDownloadURL(snapshot.ref).then((downloadURL) => {
+            formDataObject.file_url = downloadURL;
+
+            emailjs
+              .send(
+                import.meta.env.VITE_APP_EMAILJS_SERVICE_ID,
+                import.meta.env.VITE_APP_EMAILJS_TEMPLATE_ID,
+                formDataObject,
+                import.meta.env.VITE_APP_EMAILJS_PUBLIC_KEY,
+              )
+              .then(
+                (result) => {
+                  console.log('SUCCESS!', result.text);
+                  setFormData({
+                    first_name: '',
+                    last_name: '',
+                    user_email: '',
+                    phone_number: '',
+                    subject: '',
+                    message: '',
+                  });
+                  setFile(null);
+                  setCaptchaValid(false);
+                  setModalIsOpen(true);
+                },
+                (error) => {
+                  console.log('FAILED...', error.text);
+                  alert('Failed to send message, please try again.');
+                },
+              );
+          });
+        });
+      } else {
+        emailjs
+          .send(
+            import.meta.env.VITE_APP_EMAILJS_SERVICE_ID,
+            import.meta.env.VITE_APP_EMAILJS_TEMPLATE_ID,
+            formDataObject,
+            import.meta.env.VITE_APP_EMAILJS_PUBLIC_KEY,
+          )
+          .then(
+            (result) => {
+              console.log('SUCCESS!', result.text);
+              setFormData({
+                first_name: '',
+                last_name: '',
+                user_email: '',
+                phone_number: '',
+                subject: '',
+                message: '',
+              });
+              setFile(null);
+              setCaptchaValid(false);
+              setModalIsOpen(true);
+            },
+            (error) => {
+              console.log('FAILED...', error.text);
+              alert('Failed to send message, please try again.');
+            },
+          );
       }
-
-      console.log("Form Data with File: ", formDataWithFile);
-
-      emailjs
-        .sendForm(
-          import.meta.env.VITE_APP_EMAILJS_SERVICE_ID,
-          import.meta.env.VITE_APP_EMAILJS_TEMPLATE_ID,
-          form.current,
-          import.meta.env.VITE_APP_EMAILJS_PUBLIC_KEY,
-        )
-        .then(
-          (result) => {
-            console.log('SUCCESS!', result.text);
-            setFormData({
-              first_name: '',
-              last_name: '',
-              user_email: '',
-              phone_number: '',
-              subject: '',
-              message: '',
-            });
-            setFile(null);
-            setCaptchaValid(false);
-            setModalIsOpen(true);
-          },
-          (error) => {
-            console.log('FAILED...', error.text);
-            alert('Failed to send message, please try again.');
-          },
-        );
     } else {
       alert('Please fill in all required fields and complete the reCAPTCHA.');
     }
@@ -277,5 +312,3 @@ const Contact = () => {
 };
 
 export default Contact;
-
-
